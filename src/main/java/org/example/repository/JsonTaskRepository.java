@@ -1,4 +1,4 @@
-package org.example.respository;
+package org.example.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -69,13 +69,12 @@ public class JsonTaskRepository implements TaskRepository {
             existingTasks.add(task);
             writeContentsToFile(existingTasks);
             System.out.println("Task with id " + task.getId() + " updated successfully.");
-            return task;
         } else {
             existingTasks.add(task);
             writeContentsToFile(existingTasks);
             System.out.println("Task with id " + task.getId() + " created successfully.");
-            return task;
         }
+        return task;
 
     }
 

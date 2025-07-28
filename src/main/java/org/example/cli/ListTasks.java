@@ -14,7 +14,7 @@ import java.util.List;
 public class ListTasks implements Runnable {
 
     @CommandLine.ParentCommand
-    private TaskTrackerCLI parent;
+    public TaskTrackerCLI parent;
 
     @Override
     public void run() {

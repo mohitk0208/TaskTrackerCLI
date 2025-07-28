@@ -1,8 +1,8 @@
 package org.example;
 
 import org.example.cli.*;
-import org.example.respository.JsonTaskRepository;
-import org.example.respository.TaskRepository;
+import org.example.repository.JsonTaskRepository;
+import org.example.repository.TaskRepository;
 import org.example.service.TaskService;
 import org.example.service.TaskServiceImpl;
 import picocli.CommandLine;

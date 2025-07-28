@@ -3,7 +3,7 @@ package org.example.service;
 import org.example.enums.TaskStatus;
 import org.example.mapper.TaskMapper;
 import org.example.models.Task;
-import org.example.respository.TaskRepository;
+import org.example.repository.TaskRepository;
 
 import java.util.List;
 
