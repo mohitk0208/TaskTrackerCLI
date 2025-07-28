@@ -7,6 +7,7 @@ import org.example.enums.TaskStatus;
 import org.example.models.Task;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +24,8 @@ public class JsonTaskRepository implements TaskRepository {
         // Ensure the file exists
         try {
             if (!databaseFile.exists()) {
-                boolean _ = databaseFile.createNewFile();
+                boolean _ = databaseFile.getParentFile().mkdirs();
+                boolean __ = databaseFile.createNewFile();
             }
         } catch (Exception e) {
             throw new RuntimeException("Could not create database file", e);
@@ -60,17 +62,17 @@ public class JsonTaskRepository implements TaskRepository {
             throw new IllegalArgumentException("Task cannot be null");
         }
 
+        List<Task> existingTasks = new ArrayList<>(findAll());
+
         if (existsById(task.getId())) {
-            List<Task> tasks = findAll();
-            tasks.removeIf(existingTask -> existingTask.getId().equals(task.getId()));
-            tasks.add(task);
-            writeContentsToFile(tasks);
+            existingTasks.removeIf(existingTask -> existingTask.getId().equals(task.getId()));
+            existingTasks.add(task);
+            writeContentsToFile(existingTasks);
             System.out.println("Task with id " + task.getId() + " updated successfully.");
             return task;
         } else {
-            List<Task> tasks = findAll();
-            tasks.add(task);
-            writeContentsToFile(tasks);
+            existingTasks.add(task);
+            writeContentsToFile(existingTasks);
             System.out.println("Task with id " + task.getId() + " created successfully.");
             return task;
         }
