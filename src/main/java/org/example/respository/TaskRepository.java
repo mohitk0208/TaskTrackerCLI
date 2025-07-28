@@ -1,5 +1,6 @@
 package org.example.respository;
 
+import org.example.enums.TaskStatus;
 import org.example.models.Task;
 
 import java.util.List;
@@ -10,6 +11,6 @@ public interface TaskRepository {
     Optional<Task> findById(String id);
     Task save(Task task);
     void deleteById(String id);
-    List<Task> findByStatus(String status);
+    List<Task> findByStatus(TaskStatus status);
     boolean existsById(String id);
 }

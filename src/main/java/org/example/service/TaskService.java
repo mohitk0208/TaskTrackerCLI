@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.enums.TaskStatus;
 import org.example.models.Task;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public interface TaskService {
     Task updateTaskStatus(String id, String status);
     void deleteTask(String id);
     List<Task> getAllTasks();
-    List<Task> getTasksByStatus(String status);
+    List<Task> getTasksByStatus(TaskStatus status);
 }
