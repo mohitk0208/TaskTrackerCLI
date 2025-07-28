@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.cli.AddTask;
+import org.example.cli.*;
 import org.example.respository.JsonTaskRepository;
 import org.example.respository.TaskRepository;
 import org.example.service.TaskService;
@@ -11,7 +11,7 @@ import picocli.CommandLine;
         name = "task",
         mixinStandardHelpOptions = true,
         description = "A CLI application to manage tasks.",
-        subcommands = {AddTask.class}
+        subcommands = {AddTask.class, UpdateTask.class, ListTasks.class, MarkDone.class, MarkInProgress.class, DeleteTask.class}
 )
 public class TaskTrackerCLI implements Runnable {
     public TaskService taskService;

@@ -42,13 +42,13 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Task updateTaskStatus(String id, String status) {
+    public Task updateTaskStatus(String id, TaskStatus status) {
         Task task = getTaskById(id);
-        if (status == null || status.isBlank()) {
+        if (status == null ) {
             throw new IllegalArgumentException("Status cannot be null or blank");
         }
         try {
-            task.setStatus(TaskStatus.valueOf(status.toUpperCase()));
+            task.setStatus(status);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Invalid status: " + status);
         }

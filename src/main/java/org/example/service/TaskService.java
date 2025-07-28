@@ -9,7 +9,7 @@ public interface TaskService {
     Task createTask(String description);
     Task getTaskById(String id);
     Task updateTaskDescription(String id, String description);
-    Task updateTaskStatus(String id, String status);
+    Task updateTaskStatus(String id, TaskStatus status);
     void deleteTask(String id);
     List<Task> getAllTasks();
     List<Task> getTasksByStatus(TaskStatus status);
